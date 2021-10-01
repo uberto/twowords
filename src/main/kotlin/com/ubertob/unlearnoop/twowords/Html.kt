@@ -2,6 +2,18 @@ package com.ubertob.unlearnoop.twowords
 
 data class HtmlPage(val raw: String)
 
+fun htmlHello(): HtmlPage =
+    HtmlPage(
+        """
+        <html><body>
+        
+        <h1>Hello to TwoWords</h1>
+        
+        <p>To shorten an url try: /generate?url=https://www.xxx.com</p>
+        </body></html>   
+        """.trimIndent()
+    )
+
 fun htmlShortenedPage(short: ShortUrl): HtmlPage =
     HtmlPage(
         """<html><body><h1>

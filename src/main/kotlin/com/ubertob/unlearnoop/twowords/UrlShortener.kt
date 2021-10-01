@@ -8,6 +8,7 @@ import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status
 import org.http4k.core.Status.Companion.NOT_FOUND
+import org.http4k.core.Status.Companion.OK
 import org.http4k.routing.bind
 import org.http4k.routing.path
 import org.http4k.routing.routes
@@ -22,9 +23,15 @@ fun main() {
 }
 
 val twoWords: HttpHandler = routes(
+    "/" bind GET to ::hello,
     "/generate" bind GET to ::generate,
     "/x/{short}" bind GET to ::expand
 )
+
+private fun hello(req: Request): Response =
+    htmlHello()
+        .let(::toResponse)
+
 
 private fun expand(req: Request): Response =
     req.path("short")
