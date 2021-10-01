@@ -10,7 +10,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation "org.http4k:http4k-core:${http4kVersion}"
+    implementation "org.http4k:http4k-server-jetty:${http4kVersion}"
+
+    implementation "redis.clients:jedis:3.1.0"
 }
 
 test {

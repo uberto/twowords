@@ -1,0 +1,19 @@
+version: '2'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  redis:
+    image: 'bitnami/redis:latest'
+    #    to enable persistence uncomment next line
+    #    command: ["redis-server", "--appendonly", "yes"]
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/bitnami/redis/data
+    networks:
+      - app-tier
