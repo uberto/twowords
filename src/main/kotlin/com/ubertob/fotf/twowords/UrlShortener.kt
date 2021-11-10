@@ -1,26 +1,17 @@
-package com.ubertob.unlearnoop.twowords
+package com.ubertob.fotf.twowords
 
-import com.ubertob.unlearnoop.twowords.Words.toShortId
-import com.ubertob.unlearnoop.twowords.Words.toShortUrl
+import com.ubertob.fotf.twowords.Words.toShortId
+import com.ubertob.fotf.twowords.Words.toShortUrl
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.GET
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status
 import org.http4k.core.Status.Companion.NOT_FOUND
-import org.http4k.core.Status.Companion.OK
 import org.http4k.routing.bind
 import org.http4k.routing.path
 import org.http4k.routing.routes
-import org.http4k.server.Jetty
-import org.http4k.server.asServer
 
-
-fun main() {
-    val port = 8081
-    println("TwoWords started listening on port $port")
-    twoWords.asServer(Jetty(port)).start()
-}
 
 val twoWords: HttpHandler = routes(
     "/" bind GET to ::hello,

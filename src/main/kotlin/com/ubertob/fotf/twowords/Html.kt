@@ -1,4 +1,4 @@
-package com.ubertob.unlearnoop.twowords
+package com.ubertob.fotf.twowords
 
 data class HtmlPage(val raw: String)
 

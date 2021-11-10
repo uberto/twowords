@@ -1,4 +1,4 @@
-package com.ubertob.unlearnoop.twowords
+package com.ubertob.fotf.twowords
 
 object Words {
     private val words: List<String> = Words::class.java.getResource("/word_data.txt")

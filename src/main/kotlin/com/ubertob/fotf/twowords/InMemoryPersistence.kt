@@ -1,4 +1,4 @@
-package com.ubertob.unlearnoop.twowords
+package com.ubertob.fotf.twowords
 
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -17,7 +17,7 @@ object InMemoryPersistence {
 
     fun saveUrl(url: FullUrl): ShortId =
         counter.getAndIncrement()
-            .let(::shuffle)
+            .let(InMemoryPersistence::shuffle)
             .let(::ShortId)
             .also { urls[it] = url }
 }

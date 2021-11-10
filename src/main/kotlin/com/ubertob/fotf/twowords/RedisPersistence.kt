@@ -1,4 +1,4 @@
-package com.ubertob.unlearnoop.twowords
+package com.ubertob.fotf.twowords
 
 import redis.clients.jedis.Jedis
 
@@ -16,7 +16,7 @@ object RedisPersistence {
 
     fun saveUrl(url: FullUrl): ShortId =
         redis.incr("counter").toInt()
-            .let(::shuffle)
+            .let(RedisPersistence::shuffle)
             .let(::ShortId)
             .also { redis.set(it.key, url.raw) }
 
