@@ -8,6 +8,7 @@ object RedisPersistence {
 
     val redis = Jedis()
 
+    //this function is to make the results more "random" looking
     fun shuffle(x: Int): Int = ((x * bigPrime) % tot).toInt()
 
     fun retrieveUrl(index: ShortId): FullUrl? =
